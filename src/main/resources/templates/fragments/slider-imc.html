@@ -1,0 +1,49 @@
+<!-- Card: Formulario de Registro -->
+<div th:fragment="slider-imc" class="col-12 col-lg-6">
+    <div class="card shadow border-0" style="min-height: 608px;">
+        <div class="card-body p-4">
+            <h4 class="card-title mb-4 d-flex align-items-center">
+                <i class="bi bi-calculator me-2 text-muted"></i> Registrar IMC
+            </h4>
+
+            <form id="imc-form" th:action="@{/imc/create}" method="post">
+                <div class="mb-4">
+                    <label for="altura" class="form-label">Altura (cm): <span id="altura-valor">173</span></label>
+                    <input type="range" name="altura" class="form-range" id="alturaSlider" min="100" max="220" step="1"
+                        value="170">
+                </div>
+
+                <div class="mb-4">
+                    <label for="peso" class="form-label">Peso (kg): <span id="peso-valor">70</span></label>
+                    <input type="range" name="peso" class="form-range" id="pesoSlider" min="30" max="150" step="1"
+                        value="67">
+                </div>
+
+                <button type="submit" class="btn w-100 text-white"
+                    style="background-color: rgb(107, 105, 105);">Enviar</button>
+            </form>
+
+            <div id="resultado" class="alert alert-info mt-4 d-none"></div>
+
+            <div class="mt-4 text-muted " style="text-align: justify;">
+
+                <p><strong>Nota:</strong></p>
+                <p>
+                    Aunque es una herramienta útil para evaluar riesgos relacionados con el peso, el IMC no distingue
+                    entre masa muscular y grasa corporal.
+                    Por ello, personas muy musculosas o atletas pueden tener un IMC elevado sin que esto indique un
+                    exceso de grasa.
+                </p>
+            </div>
+
+
+            <div th:if="${mensaje}" class="alert alert-success mt-4" role="alert">
+                <span th:text="${mensaje}"></span>
+            </div>
+
+            <div th:if="${error}" class="alert alert-danger mt-4" role="alert">
+                <span th:text="${error}"></span>
+            </div>
+        </div>
+    </div>
+</div>
