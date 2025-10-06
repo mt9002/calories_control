@@ -12,9 +12,12 @@ public class AuthRepository implements IAuthRepository {
     
 
     private final UserJpa userJpa;
+    private final ResetTokenJpa resetTokenJpa;
 
-    public AuthRepository(UserJpa userJpa) {
+
+    public AuthRepository(UserJpa userJpa, ResetTokenJpa resetTokenJpa) {
         this.userJpa = userJpa;
+        this.resetTokenJpa = resetTokenJpa;
     }
     
     @Override
@@ -30,4 +33,17 @@ public class AuthRepository implements IAuthRepository {
 
         return Optional.of(user);
     }
+
+    @Override
+    public Optional<UserModel> findByEmail(String email){
+        return userJpa.findByEmail(email);
+    }
+
+    @Override
+    public Optional<PasswordResetToken> saveResetToken(PasswordResetToken passwordResetToken) {
+        PasswordResetToken pr =resetTokenJpa.save(passwordResetToken);
+        return Optional.of(pr);
+        
+    }
+
 }

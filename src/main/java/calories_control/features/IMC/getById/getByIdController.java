@@ -1,4 +1,4 @@
-package calories_control.features.IMC.getById;
+package calories_control.features.imc.getbyid;
 
 
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import calories_control.features.IMC.IMCRepository;
+import calories_control.features.imc.IMCRepository;
 
 @Controller
 @RequestMapping("/imc")

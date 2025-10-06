@@ -1,4 +1,4 @@
-package calories_control.features.IMC;
+package calories_control.features.imc;
 
 public class IMC {
     private double weight;

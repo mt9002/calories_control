@@ -1,4 +1,4 @@
-package calories_control.features.IMC.create;
+package calories_control.features.imc.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

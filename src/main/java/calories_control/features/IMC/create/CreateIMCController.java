@@ -1,4 +1,4 @@
-package calories_control.features.IMC.create;
+package calories_control.features.imc.create;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,9 +9,9 @@ import calories_control.features.shared.State;
 @Controller
 @RequestMapping("/imc")
 public class CreateIMCController {
-    private final CreateIMCUseCase createIMCUseCase;
+    private final ICreateIMCUseCase createIMCUseCase;
 
-    public CreateIMCController(CreateIMCUseCase createIMCUseCase) {
+    public CreateIMCController(ICreateIMCUseCase createIMCUseCase) {
         this.createIMCUseCase = createIMCUseCase;
        
     }

@@ -18,23 +18,23 @@
   <div class="d-flex min-vh-100">
 
     <!-- Sidebar izquierda-->
-    <nav th:replace="~{fragments/sidebar :: sidebar}"></nav>
+    <nav th:replace="~{fragments/principal/sidebar :: sidebar}"></nav>
 
     <!-- Main content -->
     <div class="flex-fill d-flex flex-column">
 
       <!-- Topbar -->
-      <header th:replace="~{fragments/header :: header}"></header>
+      <header th:replace="~{fragments/principal/header :: header}"></header>
 
       <!-- Page Content -->
       <main class="container my-4">
         <div class="row g-4">
 
           <!--slider IMC -->
-          <div th:replace="~{fragments/slider :: slider}"></div>
+          <div th:replace="~{fragments/principal/slider :: slider}"></div>
 
           <!-- Tabla de Categorías IMC -->
-          <div th:replace="~{fragments/table :: table}"></div>
+          <div th:replace="~{fragments/principal/table :: table}"></div>
         </div>
       </main>
 

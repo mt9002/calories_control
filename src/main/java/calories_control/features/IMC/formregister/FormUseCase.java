@@ -1,8 +1,8 @@
-package calories_control.features.IMC.form_register;
+package calories_control.features.imc.formregister;
 
 import java.util.List;
 
-import calories_control.features.IMC.zpersistence.IMCWithUserProjection;
+import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 
 public class FormUseCase {
     

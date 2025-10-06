@@ -1,4 +1,4 @@
-package calories_control.features.IMC.zpersistence;
+package calories_control.features.imc.zpersistence;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,7 @@ public class ImcModel {
     @Column(name = "peso")
     private Double peso;
 
-    @Column(name = "altura")
+    @Column(name = "altura")            
     private Double altura;
 
     @Column(name = "resultado")

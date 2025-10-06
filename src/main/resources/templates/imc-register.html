@@ -18,23 +18,23 @@
   <div class="d-flex min-vh-100">
 
     <!-- Sidebar izquierda-->
-    <nav th:replace="~{fragments/sidebar :: sidebar}"></nav>
+    <nav th:replace="~{fragments/principal/sidebar :: sidebar}"></nav>
 
     <!-- Main content -->
     <div class="flex-fill d-flex flex-column">
 
       <!-- Topbar -->
-      <header th:replace="~{fragments/header :: header}"></header>
+      <header th:replace="~{fragments/principal/header :: header}"></header>
 
       <!-- Page Content -->
       <main class="container my-4">
         <div class="row g-4">
 
           <!--form dieta -->
-          <div th:replace="~{fragments/slider-imc :: slider-imc}"></div>
+          <div th:replace="~{fragments/rutinas/slider-imc :: slider-imc}"></div>
           
           <!-- Tabla de Categorías IMC -->
-          <div th:replace="~{fragments/tabla-registros :: tabla-registros}"></div>
+          <div th:replace="~{fragments/principal/tabla-registros :: tabla-registros}"></div>
         
         </div>
       </main>

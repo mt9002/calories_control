@@ -1,9 +1,9 @@
-package calories_control.features.IMC;
+package calories_control.features.imc;
 
 import java.util.List;
 import java.util.Optional;
 
-import calories_control.features.IMC.zpersistence.IMCWithUserProjection;
+import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 
 public interface IMCRepository {
     public Optional<IMC> save(IMC imc, long userId);

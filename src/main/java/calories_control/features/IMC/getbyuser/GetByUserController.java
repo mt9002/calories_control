@@ -1,11 +1,11 @@
-package calories_control.features.IMC.get_by_user;
+package calories_control.features.imc.getbyuser;
 
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import calories_control.features.IMC.zpersistence.IMCWithUserProjection;
+import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 
 @Controller
 @RequestMapping("/imc")

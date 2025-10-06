@@ -1,4 +1,4 @@
-package calories_control.features.IMC.form_register;
+package calories_control.features.imc.formregister;
 
 import java.util.List;
 
@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import calories_control.features.IMC.create.CreateIMCUseCase;
-import calories_control.features.IMC.create.ICreateIMCUseCase;
-
-import calories_control.features.IMC.get_by_user.IGetByUser;
-import calories_control.features.IMC.zpersistence.IMCWithUserProjection;
+import calories_control.features.imc.create.CreateIMCUseCase;
+import calories_control.features.imc.create.ICreateIMCUseCase;
+import calories_control.features.imc.getbyuser.IGetByUser;
+import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 import calories_control.features.shared.State;
 
 @Controller

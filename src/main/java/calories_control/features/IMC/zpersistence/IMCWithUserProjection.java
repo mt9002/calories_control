@@ -1,4 +1,4 @@
-package calories_control.features.IMC.zpersistence;
+package calories_control.features.imc.zpersistence;
 
 public interface IMCWithUserProjection {
     Long getImcId();

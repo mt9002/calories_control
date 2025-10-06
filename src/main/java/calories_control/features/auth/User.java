@@ -12,9 +12,12 @@ public class User {
 
     public User(String name, String email, String password) {
         this.name = name;
-        
+
         this.email = email;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public Long getId() {
@@ -56,6 +59,5 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
-    
-    
+
 }

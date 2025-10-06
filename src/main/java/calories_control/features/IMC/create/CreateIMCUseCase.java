@@ -1,14 +1,14 @@
-package calories_control.features.IMC.create;
+package calories_control.features.imc.create;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.IMC.IMC;
-import calories_control.features.IMC.IMCCalculator;
-import calories_control.features.IMC.IMCCategory;
-import calories_control.features.IMC.IMCRepository;
 import calories_control.features.auth.security.util.SecurityContextUtil;
+import calories_control.features.imc.IMC;
+import calories_control.features.imc.IMCCalculator;
+import calories_control.features.imc.IMCCategory;
+import calories_control.features.imc.IMCRepository;
 import calories_control.features.shared.Result;
 import calories_control.features.shared.State;
 

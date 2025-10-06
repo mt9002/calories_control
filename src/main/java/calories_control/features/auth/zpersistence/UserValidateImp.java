@@ -2,7 +2,7 @@ package calories_control.features.auth.zpersistence;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.IMC.IUserValidate;
+import calories_control.features.imc.IUserValidate;
 
 @Component
 public class UserValidateImp implements IUserValidate {

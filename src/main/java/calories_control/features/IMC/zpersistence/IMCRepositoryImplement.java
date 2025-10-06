@@ -1,13 +1,13 @@
 
-package calories_control.features.IMC.zpersistence;
+package calories_control.features.imc.zpersistence;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import calories_control.features.IMC.IMC;
-import calories_control.features.IMC.IMCRepository;
+import calories_control.features.imc.IMC;
+import calories_control.features.imc.IMCRepository;
 
 @Repository
 public class IMCRepositoryImplement implements IMCRepository {

@@ -1,4 +1,4 @@
-package calories_control.features.IMC.getByAll;
+package calories_control.features.imc.getbyall;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

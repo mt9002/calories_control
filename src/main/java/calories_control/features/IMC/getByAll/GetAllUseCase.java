@@ -1,16 +1,17 @@
-package calories_control.features.IMC.getByAll;
+package calories_control.features.imc.getbyall;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.IMC.IMCRepository;
-import calories_control.features.IMC.zpersistence.IMCWithUserProjection;
+import calories_control.features.imc.IMCRepository;
+import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 
 @Component
 public class GetAllUseCase implements IGetAllUseCase {
 
     private final IMCRepository imcRepository;
+
     public GetAllUseCase(IMCRepository imcRepository) {
         this.imcRepository = imcRepository;
     }
