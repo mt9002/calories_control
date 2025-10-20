@@ -1,6 +1,6 @@
 package calories_control.features.auth;
 
-import calories_control.features.auth.zpersistence.Role;
+import calories_control.features.auth.infra.Role;
 
 public class User {
 

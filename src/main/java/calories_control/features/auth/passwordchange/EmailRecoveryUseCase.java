@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 import calories_control.features.auth.IAuthRepository;
-import calories_control.features.auth.zpersistence.PasswordResetToken;
-import calories_control.features.auth.zpersistence.UserModel;
+import calories_control.features.auth.infra.PasswordResetToken;
+import calories_control.features.auth.infra.UserModel;
 import calories_control.features.sendgrid.IEmailService;
 
 @Component

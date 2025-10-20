@@ -1,4 +1,4 @@
-package calories_control.features.auth.security.jwt;
+package calories_control.features.auth.infra.security.jwt;
 
 
 import io.jsonwebtoken.Claims;
@@ -14,7 +14,7 @@ import java.security.Key;
 import java.util.function.Function;
 import org.springframework.stereotype.Component;
 
-import calories_control.features.auth.security.IJWT;
+import calories_control.features.auth.infra.security.IJWT;
 
 @Component
 public class JWT implements IJWT{

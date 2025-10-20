@@ -1,4 +1,4 @@
-package calories_control.features.auth.security.jwt;
+package calories_control.features.auth.infra.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,7 +30,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JWT jwt;
     private final UserDetailsService userDetailsService;
 
-    @Autowired
     public JwtAuthenticationFilter(UserDetailsService userDetailsService) {
         this.jwt = new JWT();
         this.userDetailsService = userDetailsService;
@@ -73,16 +71,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         } catch (ExpiredJwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            ResponseEntity resp = ResponseEntity.status(HttpServletResponse.SC_UNAUTHORIZED).body(
-                    Result.failure("Token has expired ",
-                            State.UNAUTHORIZED));
+            ResponseEntity<Result<String>> resp = ResponseEntity
+                    .status(HttpServletResponse.SC_UNAUTHORIZED)
+                    .body(Result.failure("Token has expired ", State.UNAUTHORIZED));
             String json = objectMapper.writeValueAsString(resp);
             response.getWriter().write(json);
             logger.warn("Token has expired: " + e.getMessage());
             return;
         } catch (MalformedJwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            ResponseEntity resp = ResponseEntity.status(HttpServletResponse.SC_UNAUTHORIZED)
+            ResponseEntity<Result<String>> resp = ResponseEntity
+                    .status(HttpServletResponse.SC_UNAUTHORIZED)
                     .body(Result.failure("Invalid token", State.UNAUTHORIZED));
             String json = objectMapper.writeValueAsString(resp);
             response.getWriter().write(json);
@@ -90,7 +89,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         } catch (JwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            ResponseEntity resp = ResponseEntity.status(HttpServletResponse.SC_UNAUTHORIZED)
+            ResponseEntity<Result<String>> resp = ResponseEntity
+                    .status(HttpServletResponse.SC_UNAUTHORIZED)
                     .body(Result.failure("JWT validity cannot be asserted and should not be trusted.",
                             State.UNAUTHORIZED));
             String json = objectMapper.writeValueAsString(resp);
@@ -134,8 +134,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     public void validAcces(HttpServletResponse response) throws IOException {
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        ResponseEntity resp = ResponseEntity.status(HttpServletResponse.SC_FORBIDDEN)
-                .body(Result.failure("No tienes permiso para acceder a este recurso.", State.UNAUTHORIZED));
+        ResponseEntity<Result<String>> resp = ResponseEntity
+                .status(HttpServletResponse.SC_FORBIDDEN)
+                .body(
+                    Result.failure("No tienes permiso para acceder a este recurso.", State.UNAUTHORIZED));
         String json = objectMapper.writeValueAsString(resp);
         response.getWriter().write(json);
     }

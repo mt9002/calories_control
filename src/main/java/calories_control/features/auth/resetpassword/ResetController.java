@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import calories_control.features.auth.IAuthRepository;
 import calories_control.features.auth.User;
-import calories_control.features.auth.zpersistence.PasswordResetToken;
-import calories_control.features.auth.zpersistence.ResetTokenJpa;
-import calories_control.features.auth.zpersistence.UserModel;
+import calories_control.features.auth.infra.PasswordResetToken;
+import calories_control.features.auth.infra.ResetTokenJpa;
+import calories_control.features.auth.infra.UserModel;
 
 
 public class ResetController {

@@ -40,12 +40,12 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String register(@ModelAttribute Register register, RedirectAttributes redirect) {
-        if (!register.getPassword().equals(register.getConfirmPassword())) {
+    public String register(@ModelAttribute RequestRegisterDto RequestRegister, RedirectAttributes redirect) {
+        if (!RequestRegister.getPassword().equals(RequestRegister.getConfirmPassword())) {
             redirect.addAttribute("error", "Las contraseñas no coinciden");
             return "register"; // Vuelve al formulario
         }
-        Result result = registerAuthUserCase.register(register);
+        Result result = registerAuthUserCase.execute(RequestRegister);
         if (result.getState() == State.SUCCESS) {
                 redirect.addAttribute("mensaje", result.getMessage());
                 

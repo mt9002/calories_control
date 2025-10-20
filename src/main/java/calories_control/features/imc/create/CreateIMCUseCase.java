@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.auth.security.util.SecurityContextUtil;
+import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.IMC;
 import calories_control.features.imc.IMCCalculator;
 import calories_control.features.imc.IMCCategory;
@@ -21,7 +21,7 @@ public class CreateIMCUseCase implements ICreateIMCUseCase {
         this.imcRepository = imcRepository;
     }
 
-    public Result add(double peso, double altura) {
+    public Result<IMC> add(double peso, double altura) {
 
         Long userId = SecurityContextUtil.getUserId();
 

@@ -1,4 +1,4 @@
-package calories_control.features.auth.security;
+package calories_control.features.auth.infra.security;
 
 import io.jsonwebtoken.Claims;
 import java.util.function.Function;

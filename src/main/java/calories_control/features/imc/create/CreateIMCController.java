@@ -13,7 +13,7 @@ public class CreateIMCController {
 
     public CreateIMCController(ICreateIMCUseCase createIMCUseCase) {
         this.createIMCUseCase = createIMCUseCase;
-       
+
     }
 
     @PostMapping("/createIMC")

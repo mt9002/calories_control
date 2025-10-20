@@ -1,4 +1,4 @@
-package calories_control.features.auth.zpersistence;
+package calories_control.features.auth.infra;
 
 import java.util.Optional;
 

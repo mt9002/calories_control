@@ -1,6 +1,4 @@
-package calories_control.features.auth.security.config;
-
-import java.util.Optional;
+package calories_control.features.auth.infra.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import calories_control.features.auth.zpersistence.UserJpa;
-import calories_control.features.auth.zpersistence.UserModel;
+import calories_control.features.auth.infra.UserJpa;
 
 @Configuration
 public class ApplicationConfig {

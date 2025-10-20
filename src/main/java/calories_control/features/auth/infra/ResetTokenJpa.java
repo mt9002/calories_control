@@ -1,7 +1,6 @@
-package calories_control.features.auth.zpersistence;
+package calories_control.features.auth.infra;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.List;
 import java.util.Optional;
 
 

@@ -1,4 +1,4 @@
-package calories_control.features.auth.security.config;
+package calories_control.features.auth.infra.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

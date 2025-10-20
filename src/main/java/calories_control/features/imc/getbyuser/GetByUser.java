@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.auth.security.util.SecurityContextUtil;
+import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.IMCRepository;
 import calories_control.features.imc.zpersistence.IMCWithUserProjection;
 

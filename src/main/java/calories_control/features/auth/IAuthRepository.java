@@ -2,8 +2,8 @@ package calories_control.features.auth;
 
 import java.util.Optional;
 
-import calories_control.features.auth.zpersistence.PasswordResetToken;
-import calories_control.features.auth.zpersistence.UserModel;
+import calories_control.features.auth.infra.PasswordResetToken;
+import calories_control.features.auth.infra.UserModel;
 
 public interface IAuthRepository {
 
