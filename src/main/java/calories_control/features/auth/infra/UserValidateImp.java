@@ -2,7 +2,7 @@ package calories_control.features.auth.infra;
 
 import org.springframework.stereotype.Component;
 
-import calories_control.features.imc.IUserValidate;
+import calories_control.features.imc.domain.IUserValidate;
 
 @Component
 public class UserValidateImp implements IUserValidate {
@@ -17,5 +17,5 @@ public class UserValidateImp implements IUserValidate {
     public boolean isGetById(Long userId) {
         return userJpa.existsById(userId);
     }
-    
+
 }

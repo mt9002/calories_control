@@ -27,14 +27,14 @@
       <header th:replace="~{fragments/principal/header :: header}"></header>
 
       <!-- Page Content -->
-      <main class="container my-4">
-        <div class="row g-4">
+      <main class="container my-4" style="max-width: 1200px;">
+        <div class="row g-4 justify-content-center align-items-stretch">
 
           <!--slider IMC -->
-          <div th:replace="~{fragments/principal/slider :: slider}"></div>
+          <div class="h-100" th:replace="~{fragments/principal/slider :: slider}"></div>
 
           <!-- Tabla de Categorías IMC -->
-          <div th:replace="~{fragments/principal/table :: table}"></div>
+          <div class="h-100" th:replace="~{fragments/principal/table :: table}"></div>
         </div>
       </main>
 

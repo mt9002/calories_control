@@ -1,0 +1,7 @@
+# reporte de cobertura de tests en HTML.
+
+# se genera target/jacoco.exec
+mvn test
+
+# se genera El reporte HTML target/site/jacoco/index.html
+mvn jacoco:report

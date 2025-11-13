@@ -1,6 +1,6 @@
 /* Centrar la tarjeta en la pantalla */
 body {
-    background: #f0f2f5;
+    background: #FFFFFF; /* White */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,10 +13,10 @@ body {
 .login-card {
     width: 100%;
     max-width: 420px;
-    background: #ffffff;
-    border: none;
+    background: #FFFFFF; /* White */
+    border: 1px solid #E6E6FA; /* Light purple */
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(75, 0, 130, 0.1); /* Dark purple shadow */
 }
 
 /* Encabezado */
@@ -27,19 +27,19 @@ body {
 .login-header h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #343a40;
+    color: #4B0082; /* Dark purple */
 }
 
 /* Botón personalizado */
 .btn-custom {
-    background-color: #198754; /* Bootstrap green */
-    color: white;
+    background-color: #9370DB; /* Medium purple */
+    color: #FFFFFF; /* White */
     font-weight: 500;
     transition: background-color 0.3s ease;
 }
 
 .btn-custom:hover {
-    background-color: #157347;
+    background-color: #8A2BE2; /* Blue violet */
 }
 
 /* Campos redondeados */

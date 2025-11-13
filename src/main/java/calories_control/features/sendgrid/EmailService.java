@@ -7,14 +7,13 @@ import com.sendgrid.helpers.mail.objects.Email;
 
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class EmailService implements IEmailService {
 
-    //private final SendGridProperties properties;
+    // private final SendGridProperties properties;
 
     public EmailService() {
-        
+
     }
 
     /**
@@ -25,11 +24,9 @@ public class EmailService implements IEmailService {
 
     @Override
     public Response sendEmail(String to, String subject, String contentText) {
-        System.out.println("Entrando a send service");
         Request request = new Request();
         // Client sendgrid
-        //System.out.println(properties.getApiKey());
-        //SendGrid sg = new SendGrid(properties.getApiKey());
+        // SendGrid sg = new SendGrid(properties.getApiKey());
         Response response = new Response();
         try {
             Email from = new Email("liammtdev@gmail.com");
@@ -42,15 +39,11 @@ public class EmailService implements IEmailService {
             request.setMethod(Method.POST);
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
-            //response = sg.api(request);
-            System.out.println(response);
+            // response = sg.api(request);
         } catch (Exception e) {
 
         }
-        
-        System.out.println("Status: " + response.getStatusCode());
-        System.out.println("Body: " + response.getBody());
-        System.out.println("Headers: " + response.getHeaders());
+
         return response;
     }
 }
