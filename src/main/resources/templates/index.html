@@ -23,7 +23,7 @@
 
       <!-- Page Content Dinamic-->
       <main class="container my-4" style="max-width: 1200px;">
-        <div th:replace="${content} :: contenido"></div>
+        <div th:replace="~{${content} :: contenido}"></div>
       </main>
 
       <!-- Footer -->

@@ -30,11 +30,9 @@ public class FormController {
             @RequestParam(value = "mensaje", required = false) String mensaje,
             @RequestParam(value = "error", required = false) String error) {
         try {
-            String userName = SecurityContextUtil.getUser().getName();
-            model.addAttribute("userName", userName);
-            List<IMCWithUserProjection> registros = imcWhitUser.findImcWhitUser();
+            model.addAttribute("userName", SecurityContextUtil.getUser().getName());
             model.addAttribute("content", "fragments/principal/imc-register");
-            model.addAttribute("registros", registros);
+            model.addAttribute("registros", imcWhitUser.findImcWhitUser());
         } catch (Exception e) {
             logger.error("Error fetching IMC with user data", e);
             throw e; // vuelve a lanzar para que el test lo capture

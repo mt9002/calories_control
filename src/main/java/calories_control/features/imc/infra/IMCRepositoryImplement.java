@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.domain.IMC;
 import calories_control.features.imc.domain.IMCRepository;
 
@@ -25,8 +26,9 @@ public class IMCRepositoryImplement implements IMCRepository {
     public Optional<IMC> save(IMC imc) {
         if (imc == null)
             return Optional.empty();
-
-        ImcModel saveImc = imcJPA.save(imcMapper.toImcModel(imc));
+        ImcModel toImcModel = imcMapper.toImcModel(imc);
+        toImcModel.setUserId(SecurityContextUtil.getUserId());
+        ImcModel saveImc = imcJPA.save(toImcModel);
 
         if (saveImc != null && saveImc.getId() != null) {
             return Optional.of(imcMapper.toIMC(saveImc));

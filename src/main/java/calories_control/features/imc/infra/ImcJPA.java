@@ -46,6 +46,7 @@ public interface ImcJPA extends JpaRepository<ImcModel, Long> {
             imc.peso,
             imc.resultado,
             imc.clasificacion,
+            imc.fecha_registro,
             u.id AS user_id,
             u.name AS user_name
             FROM imc

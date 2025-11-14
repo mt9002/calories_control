@@ -1,7 +1,40 @@
-# reporte de cobertura de tests en HTML.
+## Modo de Uso
 
-# se genera target/jacoco.exec
+### Prerrequisitos
+- Java 21
+- Maven
+- PostgreSQL
+
+### Instalación y Ejecución
+1. Clona el repositorio desde GitHub:
+   ```
+   git clone https://github.com/mt9002/calories_control.git
+   ```
+
+2. Navega al directorio del proyecto:
+   ```
+   cd calories_control
+   ```
+
+3. Configura la base de datos:
+   - Instala y configura PostgreSQL.
+   - Crea una base de datos llamada `calories_control_test`.
+   # Si desea no usar la config de test:
+   - Crea una base de datos llamada `calories_control`.
+   - Descomenta y actualiza las líneas de configuración de la base de datos en `src/main/resources/application.properties` con tus credenciales de PostgreSQL.
+
+4. Ejecuta la aplicación:
+   ```
+   ./mvnw spring-boot:run
+   ```
+   recuerda que debe tener maven añadido al path para usar el comando mvn en terminal.
+
+5. Accede a la aplicación en tu navegador web en `http://localhost:8080`.
+
+### Ejecutar Pruebas
+Para ejecutar las pruebas y generar el reporte de cobertura:
+```
 mvn test
-
-# se genera El reporte HTML target/site/jacoco/index.html
 mvn jacoco:report
+```
+El reporte HTML estará disponible en `target/site/jacoco/index.html`.

@@ -1,5 +1,9 @@
 package calories_control.features.imc.infra;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -25,6 +29,10 @@ public class ImcModel {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "fecha_registro")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    private Date fechaRegistro;
+
     public ImcModel() {
     }
 
@@ -39,6 +47,15 @@ public class ImcModel {
 
     public Long getId() {
         return id;
+    }
+
+    @PrePersist
+    public void setFechaRegistro() {
+        this.fechaRegistro = new Date();
+    }
+
+    public Date getFechaRegistro() {
+        return fechaRegistro;
     }
 
     public Double getPeso() {

@@ -1,5 +1,7 @@
-${Ansi.GREEN}
+${Ansi.YELLOW}
 ----------------------------------------------------------------------------------------------------------------------------
-⚡⚡⚡ Running CaloriesControl Tests! .... Happy Testing! ⚡⚡⚡  Java: ${java.version}  ⚡⚡⚡  Spring Boot: ${spring-boot.version}
+⚡⚡⚡ Running CaloriesControl! .... Happy Day! ⚡⚡⚡  
+       Java: ${java.version} 
+       Spring Boot: ${spring-boot.version}
 ----------------------------------------------------------------------------------------------------------------------------               
 ${Ansi.DEFAULT}

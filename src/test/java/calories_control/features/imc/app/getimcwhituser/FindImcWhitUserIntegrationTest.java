@@ -59,12 +59,15 @@ class FormControllerIntegrationTest {
     @Test
     void testShowRegisterFormIntegration() throws Exception {
         try (MockedStatic<SecurityContextUtil> mockedSecurity = mockStatic(SecurityContextUtil.class)) {
-            mockedSecurity.when(SecurityContextUtil::getUserId).thenReturn(1L);
+
+            // Tu controlador usa: SecurityContextUtil.getUser()
+            mockedSecurity.when(SecurityContextUtil::getUser)
+                    .thenReturn(new UserModel("Test User", "testuser@example.com", "password"));
 
             mockMvc.perform(get("/imc/formRegister")
                     .with(user("testuser@example.com").password("password").roles("USER")))
                     .andExpect(status().isOk())
-                    .andExpect(view().name("imc-register"))
+                    .andExpect(view().name("index"))
                     .andExpect(model().attributeExists("registros"));
         }
     }

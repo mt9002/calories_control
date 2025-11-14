@@ -15,4 +15,6 @@ public interface IMCWithUserProjection {
     String getUserName();
 
     String getUserEmail();
+
+    String getFechaRegistro();
 }
