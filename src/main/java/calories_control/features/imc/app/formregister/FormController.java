@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.app.getimcwhituser.IGetImcWhitUser;
 import calories_control.features.imc.infra.IMCWithUserProjection;
 
@@ -29,7 +30,10 @@ public class FormController {
             @RequestParam(value = "mensaje", required = false) String mensaje,
             @RequestParam(value = "error", required = false) String error) {
         try {
+            String userName = SecurityContextUtil.getUser().getName();
+            model.addAttribute("userName", userName);
             List<IMCWithUserProjection> registros = imcWhitUser.findImcWhitUser();
+            model.addAttribute("content", "fragments/principal/imc-register");
             model.addAttribute("registros", registros);
         } catch (Exception e) {
             logger.error("Error fetching IMC with user data", e);
@@ -41,7 +45,6 @@ public class FormController {
         if (error != null)
             model.addAttribute("error", error);
 
-        return "imc-register";
+        return "index";
     }
-
 }

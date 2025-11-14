@@ -1,0 +1,171 @@
+<div th:fragment="contenido">
+  <!--form dieta -->
+  <div class="row g-4 justify-content-center align-items-stretch">
+    <!-- Card: Formulario de Registro -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow border-0" style="min-height: 608px;">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-4 d-flex align-items-center">
+            <i class="bi bi-calculator me-2 text-muted"></i> Registrar IMC
+          </h4>
+
+          <form id="imc-form" th:action="@{/imc/create}" method="post">
+            <div class="mb-4">
+              <label for="altura" class="form-label">Altura (cm): <span id="altura-valor">173</span></label>
+              <input type="range" name="altura" class="form-range " id="alturaSlider" min="100" max="220" step="1"
+                value="170">
+            </div>
+
+            <div class="mb-4">
+              <label for="peso" class="form-label">Peso (kg): <span id="peso-valor">70</span></label>
+              <input type="range" name="peso" class="form-range" id="pesoSlider" min="30" max="150" step="1" value="67">
+            </div>
+
+            <button type="submit" class="btn w-100 text-white" style="background-color: #9370DB;">Enviar</button>
+          </form>
+
+          <div id="resultado" class="alert alert-info mt-4 d-none"></div>
+
+          <div class="mt-4 text-muted " style="text-align: justify;">
+
+            <p><strong>Nota:</strong></p>
+            <p>
+              Aunque es una herramienta útil para evaluar riesgos relacionados con el peso, el IMC no distingue
+              entre masa muscular y grasa corporal.
+              Por ello, personas muy musculosas o atletas pueden tener un IMC elevado sin que esto indique un
+              exceso de grasa.
+            </p>
+          </div>
+
+
+          <div th:if="${mensaje}" class="alert alert-success mt-4" role="alert">
+            <span th:text="${mensaje}"></span>
+          </div>
+
+          <div th:if="${error}" class="alert alert-danger mt-4" role="alert">
+            <span th:text="${error}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Categorías IMC -->
+    <!-- Card: Tabla de registros -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow border-0">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title d-flex align-items-center mb-0">
+              <i class="bi bi-list-ul me-2 text-muted"></i> Historial de IMC
+            </h5>
+            <div>
+              <label for="pageSize" class="me-2 mb-0 small">Mostrar:</label>
+              <select id="pageSize" class="form-select form-select-sm d-inline w-auto">
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table id="tabla-imc" class="table table-striped align-middle">
+              <thead class="table-dark">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Peso (kg)</th>
+                  <th>Altura (m)</th>
+                  <th>IMC</th>
+                  <th>Categoría</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="registro : ${registros}">
+                  <td th:text="${registro.userName}">Nombre</td>
+                  <td th:text="${registro.peso}">0</td>
+                  <td th:text="${registro.altura}">0.0</td>
+                  <td th:text="${registro.resultado}">0.0</td>
+                  <td th:text="${registro.clasificacion}">Clasificación</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <span id="pagina-info" class="small">Página 1</span>
+            <div>
+              <button id="prevPage" class="btn btn-outline-secondary btn-sm me-2">← Anterior</button>
+              <button id="nextPage" class="btn btn-outline-secondary btn-sm">Siguiente →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Script de paginación -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const table = document.getElementById("tabla-imc").getElementsByTagName("tbody")[0];
+          const rows = table.getElementsByTagName("tr");
+          const pageSizeSelect = document.getElementById("pageSize");
+          const prevBtn = document.getElementById("prevPage");
+          const nextBtn = document.getElementById("nextPage");
+          const pageInfo = document.getElementById("pagina-info");
+
+          let currentPage = 0;
+          let pageSize = parseInt(pageSizeSelect.value);
+
+          function showPage(page) {
+            const start = page * pageSize;
+            const end = start + pageSize;
+
+            for (let i = 0; i < rows.length; i++) {
+              rows[i].style.display = (i >= start && i < end) ? "" : "none";
+            }
+
+            prevBtn.disabled = (page === 0);
+            nextBtn.disabled = (end >= rows.length);
+            pageInfo.textContent = `Página ${page + 1} de ${Math.ceil(rows.length / pageSize)}`;
+          }
+
+          pageSizeSelect.addEventListener("change", function () {
+            pageSize = parseInt(this.value);
+            currentPage = 0;
+            showPage(currentPage);
+          });
+
+          prevBtn.addEventListener("click", function () {
+            if (currentPage > 0) {
+              currentPage--;
+              showPage(currentPage);
+            }
+          });
+
+          nextBtn.addEventListener("click", function () {
+            if ((currentPage + 1) * pageSize < rows.length) {
+              currentPage++;
+              showPage(currentPage);
+            }
+          });
+
+          showPage(currentPage); // Inicializar
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-range::-webkit-slider-thumb {
+    background: #9370DB !important;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-range::-moz-range-thumb {
+    background: #9370DB !important;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+</style>
