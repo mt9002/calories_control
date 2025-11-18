@@ -17,24 +17,35 @@
    ```
 
 3. Configura la base de datos:
-   - Instala y configura PostgreSQL.
-   - Crea una base de datos llamada `calories_control_test`.
-   # Si desea no usar la config de test:
-   - Crea una base de datos llamada `calories_control`.
-   - Descomenta y actualiza las líneas de configuración de la base de datos en `src/main/resources/application.properties` con tus credenciales de PostgreSQL.
+    - Instala y configura PostgreSQL.
+    - Crea las bases de datos necesarias:
+        - `calories_control` para desarrollo.
+        - `calories_control_test` para pruebas.
 
 4. Ejecuta la aplicación:
-   ```
-   ./mvnw spring-boot:run
-   ```
-   recuerda que debe tener maven añadido al path para usar el comando mvn en terminal.
+    - Para desarrollo: `./mvnw spring-boot:run -Dspring-boot.run.profiles=dev`
+    - Para prueba: `./mvnw spring-boot:run -Dspring-boot.run.profiles=test`
+    - Para producción u otros entornos, ajusta el perfil según corresponda.
+    Recuerda que debe tener Maven añadido al PATH para usar el comando `mvn` en terminal.
+
+    ### Gestión de Perfiles
+    La aplicación utiliza perfiles de Spring para diferentes entornos:
+    - `dev`: Configuración para desarrollo (base de datos `calories_control`, logging detallado).
+    - `test`: Configuración para pruebas (base de datos `calories_control_test`, DDL auto create-drop).
+    - Por defecto, si no se especifica perfil, se usan las configuraciones comunes.
+
+    Para cambiar el perfil en ejecución:
+    - En línea de comandos: `./mvnw spring-boot:run -Dspring-boot.run.profiles=dev`
+    - En IDE (ej. IntelliJ/VS Code): Configura el perfil activo en las opciones de ejecución.
+    - Las pruebas se ejecutan automáticamente con el perfil `test`.
 
 5. Accede a la aplicación en tu navegador web en `http://localhost:8080`.
 
 ### Ejecutar Pruebas
 Para ejecutar las pruebas y generar el reporte de cobertura:
 ```
-mvn test
+mvn test  ##################### si no deseas configuracion de perfiles
+./mvnw test -Dspring.profiles.active=test  ############### con los perfiles creados.
 mvn jacoco:report
 ```
 El reporte HTML estará disponible en `target/site/jacoco/index.html`.
