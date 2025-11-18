@@ -1,11 +1,17 @@
 :root {
-  --color-primary: #4B0082; /* Dark purple */
-  --color-secondary: #9370DB; /* Medium purple */
-  --color-background: #FFFFFF; /* White */
-  --color-gray: #E6E6FA; /* Light purple */
+  --color-primary: #4B0082;
+  /* Dark purple */
+  --color-secondary: #9370DB;
+  /* Medium purple */
+  --color-background: #FFFFFF;
+  /* White */
+  --color-gray: #E6E6FA;
+  /* Light purple */
   --color-white: #FFFFFF;
-  --color-text-dark: #4B0082; /* Dark purple */
-  --color-accent: #8A2BE2; /* Blue violet purple */
+  --color-text-dark: #4B0082;
+  /* Dark purple */
+  --color-accent: #8A2BE2;
+  /* Blue violet purple */
 }
 
 * {
@@ -223,61 +229,222 @@ form button:hover {
 }
 
 /* Overrides for Bootstrap color classes to use purples and white */
-.bg-primary { background-color: #4B0082 !important; color: #FFFFFF !important; }
-.bg-success { background-color: #9370DB !important; color: #FFFFFF !important; }
-.bg-info { background-color: #E6E6FA !important; color: #4B0082 !important; }
-.bg-warning { background-color: #8A2BE2 !important; color: #FFFFFF !important; }
-.bg-danger { background-color: #9370DB !important; color: #FFFFFF !important; }
-.bg-secondary { background-color: #E6E6FA !important; color: #4B0082 !important; }
-.bg-dark { background-color: #4B0082 !important; color: #FFFFFF !important; }
-.bg-light { background-color: #FFFFFF !important; color: #4B0082 !important; }
+.bg-primary {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
 
-.btn-outline-primary { border-color: #4B0082 !important; color: #4B0082 !important; }
-.btn-outline-primary:hover { background-color: #4B0082 !important; color: #FFFFFF !important; }
+.bg-success {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
 
-.btn-outline-success { border-color: #9370DB !important; color: #9370DB !important; }
-.btn-outline-success:hover { background-color: #9370DB !important; color: #FFFFFF !important; }
+.bg-info {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
 
-.btn-outline-info { border-color: #E6E6FA !important; color: #E6E6FA !important; }
-.btn-outline-info:hover { background-color: #E6E6FA !important; color: #4B0082 !important; }
+.bg-warning {
+  background-color: #8A2BE2 !important;
+  color: #FFFFFF !important;
+}
 
-.btn-outline-warning { border-color: #8A2BE2 !important; color: #8A2BE2 !important; }
-.btn-outline-warning:hover { background-color: #8A2BE2 !important; color: #FFFFFF !important; }
+.bg-danger {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
 
-.btn-outline-danger { border-color: #9370DB !important; color: #9370DB !important; }
-.btn-outline-danger:hover { background-color: #9370DB !important; color: #FFFFFF !important; }
+.bg-secondary {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
 
-.btn-outline-secondary { border-color: #E6E6FA !important; color: #E6E6FA !important; }
-.btn-outline-secondary:hover { background-color: #E6E6FA !important; color: #4B0082 !important; }
+.bg-dark {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
 
-.btn-outline-dark { border-color: #4B0082 !important; color: #4B0082 !important; }
-.btn-outline-dark:hover { background-color: #4B0082 !important; color: #FFFFFF !important; }
+.bg-light {
+  background-color: #FFFFFF !important;
+  color: #4B0082 !important;
+}
 
-.text-primary { color: #4B0082 !important; }
-.text-success { color: #9370DB !important; }
-.text-info { color: #E6E6FA !important; }
-.text-warning { color: #8A2BE2 !important; }
-.text-danger { color: #9370DB !important; }
-.text-secondary { color: #E6E6FA !important; }
-.text-dark { color: #4B0082 !important; }
-.text-muted { color: #8A2BE2 !important; }
+.btn-outline-primary {
+  border-color: #4B0082 !important;
+  color: #4B0082 !important;
+}
 
-.alert-info { background-color: #FFFFFF !important; border-color: #E6E6FA !important; color: #4B0082 !important; }
-.alert-success { background-color: #E6E6FA !important; border-color: #9370DB !important; color: #4B0082 !important; }
-.alert-danger { background-color: #E6E6FA !important; border-color: #9370DB !important; color: #4B0082 !important; }
-.alert-warning { background-color: #FFFFFF !important; border-color: #E6E6FA !important; color: #8A2BE2 !important; }
+.btn-outline-primary:hover {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-success {
+  border-color: #9370DB !important;
+  color: #9370DB !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-info {
+  border-color: #E6E6FA !important;
+  color: #E6E6FA !important;
+}
+
+.btn-outline-info:hover {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
+
+.btn-outline-warning {
+  border-color: #8A2BE2 !important;
+  color: #8A2BE2 !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: #8A2BE2 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-danger {
+  border-color: #9370DB !important;
+  color: #9370DB !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-secondary {
+  border-color: #E6E6FA !important;
+  color: #E6E6FA !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
+
+.btn-outline-dark {
+  border-color: #4B0082 !important;
+  color: #4B0082 !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
+
+.text-primary {
+  color: #4B0082 !important;
+}
+
+.text-success {
+  color: #9370DB !important;
+}
+
+.text-info {
+  color: #E6E6FA !important;
+}
+
+.text-warning {
+  color: #8A2BE2 !important;
+}
+
+.text-danger {
+  color: #9370DB !important;
+}
+
+.text-secondary {
+  color: #E6E6FA !important;
+}
+
+.text-dark {
+  color: #4B0082 !important;
+}
+
+.text-muted {
+  color: #8A2BE2 !important;
+}
+
+.alert-info {
+  background-color: #FFFFFF !important;
+  border-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
+
+.alert-success {
+  background-color: #E6E6FA !important;
+  border-color: #9370DB !important;
+  color: #4B0082 !important;
+}
+
+.alert-danger {
+  background-color: #E6E6FA !important;
+  border-color: #9370DB !important;
+  color: #4B0082 !important;
+}
+
+.alert-warning {
+  background-color: #FFFFFF !important;
+  border-color: #E6E6FA !important;
+  color: #8A2BE2 !important;
+}
 
 /* Overrides for EJERCICIOS.html table classes from Google Sheets export */
-.s7 { background-color: #4B0082 !important; color: #FFFFFF !important; }
-.s8 { background-color: #9370DB !important; color: #FFFFFF !important; }
-.s9 { background-color: #8A2BE2 !important; color: #FFFFFF !important; }
-.s10 { background-color: #E6E6FA !important; color: #4B0082 !important; }
-.s11 { background-color: #4B0082 !important; color: #FFFFFF !important; }
-.s12 { background-color: #9370DB !important; color: #FFFFFF !important; }
-.s13 { background-color: transparent !important; color: #4B0082 !important; }
-.s14 { background-color: #8A2BE2 !important; color: #FFFFFF !important; }
-.s15 { background-color: #E6E6FA !important; color: #4B0082 !important; }
-.s16 { background-color: #9370DB !important; color: #FFFFFF !important; }
+.s7 {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
+
+.s8 {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
+
+.s9 {
+  background-color: #8A2BE2 !important;
+  color: #FFFFFF !important;
+}
+
+.s10 {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
+
+.s11 {
+  background-color: #4B0082 !important;
+  color: #FFFFFF !important;
+}
+
+.s12 {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
+
+.s13 {
+  background-color: transparent !important;
+  color: #4B0082 !important;
+}
+
+.s14 {
+  background-color: #8A2BE2 !important;
+  color: #FFFFFF !important;
+}
+
+.s15 {
+  background-color: #E6E6FA !important;
+  color: #4B0082 !important;
+}
+
+.s16 {
+  background-color: #9370DB !important;
+  color: #FFFFFF !important;
+}
 
 /* Responsivo */
 @media (max-width: 768px) {

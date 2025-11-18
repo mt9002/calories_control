@@ -29,6 +29,12 @@
           <i class="bi bi-activity me-2 fs-5"></i> Rutinas
         </a>
       </li>
+       <li class="nav-item me-3">
+         <a class="nav-link text-white fw-semibold py-2 px-3 rounded d-flex align-items-center transition-all sidebar-link"
+           th:href="@{/profile}">
+           <i class="bi bi-person me-2 fs-5"></i> Perfil
+         </a>
+       </li>
 
       <li class="nav-item me-3">
         <a href="#about"
@@ -38,7 +44,7 @@
       </li>
 
       <li class="nav-item me-4 d-flex align-items-center">
-        <img src="https://randomuser.me/api/portraits/lego/0.jpg"
+        <img th:src="${avatarUrl != null ? avatarUrl : 'https://randomuser.me/api/portraits/lego/0.jpg'}"
           class="rounded-circle border border-3 border-white me-2" width="45" height="45" alt="User Photo" />
         <span class="fw-bold text-white d-none d-lg-inline" th:text="${userName}"></span>
       </li>

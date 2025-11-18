@@ -1,0 +1,37 @@
+<div th:fragment="contenido" class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-header text-white" style="background-color: #53137a;">
+                <h3 class="card-title mb-0">Perfil de Usuario</h3>
+            </div>
+            <div class="card-body">
+                <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+                <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img th:src="${avatarUrl != null ? avatarUrl : 'https://randomuser.me/api/portraits/lego/0.jpg'}"
+                            class="rounded-circle border border-3 mb-3" style="border-color: #b89c40 !important;"
+                            width="150" height="150" alt="Avatar" />
+                        <form th:action="@{/users/avatar}" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <input type="file" class="form-control" name="file" accept="image/*" required />
+                            </div>
+                            <button type="submit" class="btn"
+                                style="background-color: #53137a; color: white;">Actualizar Avatar</button>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 th:text="${userName}">Nombre del Usuario</h4>
+                        <p class="text-muted" th:text="${userEmail}">email@example.com</p>
+                        <hr />
+                        <h5>Información Personal</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>Fecha de Registro:</strong> <span th:text="${fechaRegistro}">N/A</span></li>
+                            <li><strong>Rol:</strong> <span th:text="${userRole}">USER</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
