@@ -21,7 +21,9 @@
               <input type="range" name="peso" class="form-range" id="pesoSlider" min="30" max="150" step="1" value="67">
             </div>
 
-            <button type="submit" class="btn w-100 text-white" style="background-color: #9370DB;">Enviar</button>
+            <button type="submit" class="btn w-100 text-white" style="background-color: #9370DB; transition: background-color 0.3s;"
+              onmouseover="this.style.backgroundColor='#6a0dad'"
+              onmouseout="this.style.backgroundColor='#9370DB'">Enviar</button>
           </form>
 
           <div id="resultado" class="alert alert-info mt-4 d-none"></div>

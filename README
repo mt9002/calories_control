@@ -47,5 +47,8 @@ Para ejecutar las pruebas y generar el reporte de cobertura:
 mvn test  ##################### si no deseas configuracion de perfiles
 ./mvnw test -Dspring.profiles.active=test  ############### con los perfiles creados.
 mvn jacoco:report
+./mvnw jacoco:report
+./mvnw clean test -Dspring.profiles.active=test jacoco:report
+
 ```
 El reporte HTML estará disponible en `target/site/jacoco/index.html`.

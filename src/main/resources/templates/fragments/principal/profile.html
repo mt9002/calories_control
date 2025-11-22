@@ -1,7 +1,7 @@
 <div th:fragment="contenido" class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow-lg">
-            <div class="card-header text-white" style="background-color: #53137a;">
+            <div class="card-header text-white" style="background: linear-gradient(135deg, #4B0082 0%, #9370DB 100%);">
                 <h3 class="card-title mb-0">Perfil de Usuario</h3>
             </div>
             <div class="card-body">
@@ -17,7 +17,10 @@
                                 <input type="file" class="form-control" name="file" accept="image/*" required />
                             </div>
                             <button type="submit" class="btn"
-                                style="background-color: #53137a; color: white;">Actualizar Avatar</button>
+                                style="background: linear-gradient(135deg, #4B0082 0%, #9370DB 100%); color: white; transition: background 0.3s;"
+                                onmouseover="this.style.background='linear-gradient(135deg, #3a0066 0%, #6a0dad 100%)'"
+                                onmouseout="this.style.background='linear-gradient(135deg, #4B0082 0%, #9370DB 100%)'">Actualizar
+                                Avatar</button>
                         </form>
                     </div>
                     <div class="col-md-8">

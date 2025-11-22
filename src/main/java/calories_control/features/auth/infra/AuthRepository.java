@@ -11,12 +11,12 @@ import calories_control.features.auth.domain.User;
 public class AuthRepository implements IAuthRepository {
 
     private final UserJpa userJpa;
-    private final AvatarJpa avatarJpa;
+
     private final ResetTokenJpa resetTokenJpa;
 
     public AuthRepository(UserJpa userJpa, ResetTokenJpa resetTokenJpa, AvatarJpa avatarJpa) {
         this.userJpa = userJpa;
-        this.avatarJpa = avatarJpa;
+
         this.resetTokenJpa = resetTokenJpa;
     }
 
@@ -41,25 +41,6 @@ public class AuthRepository implements IAuthRepository {
         PasswordResetToken pr = resetTokenJpa.save(passwordResetToken);
         return Optional.of(pr);
 
-    }
-
-    @Override
-    public Optional<AvatarModel> updateAvatar(Long userId, String avatarUrl) {
-        Optional<AvatarModel> existingAvatar = avatarJpa.findByUserId(userId);
-        AvatarModel avatar;
-        if (existingAvatar.isPresent()) {
-            avatar = existingAvatar.get();
-            avatar.setAvatarUrl(avatarUrl);
-        } else {
-            avatar = new AvatarModel(userId, avatarUrl);
-        }
-        AvatarModel savedAvatar = avatarJpa.save(avatar);
-        return Optional.of(savedAvatar);
-    }
-
-    @Override
-    public Optional<AvatarModel> getAvatar(Long userId) {
-        return avatarJpa.findByUserId(userId);
     }
 
 }

@@ -29,15 +29,9 @@
           <i class="bi bi-activity me-2 fs-5"></i> Rutinas
         </a>
       </li>
-       <li class="nav-item me-3">
-         <a class="nav-link text-white fw-semibold py-2 px-3 rounded d-flex align-items-center transition-all sidebar-link"
-           th:href="@{/profile}">
-           <i class="bi bi-person me-2 fs-5"></i> Perfil
-         </a>
-       </li>
 
       <li class="nav-item me-3">
-        <a href="#about"
+        <a th:href="@{/about}"
           class="nav-link text-white fw-semibold py-2 px-3 rounded d-flex align-items-center transition-all hover-link">
           <i class="bi bi-info-circle me-2"></i>About
         </a>
@@ -57,8 +51,12 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="userMenu"
           style="background: rgba(255, 255, 255, 0.9); border: none; width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-          <li><a class="dropdown-item" href="#" style="background: none; padding: 12px 20px;"><i
-                class="bi bi-gear me-2"></i>Configuración</a></li>
+          <li class="nav-item me-3">
+            <a class="nav-link py-2 px-3 rounded d-flex align-items-center transition-all sidebar-link"
+              th:href="@{/profile}">
+              <i class="bi bi-person me-2 fs-5"></i> Perfil
+            </a>
+          </li>
           <li>
             <hr class="dropdown-divider" style="border-color: rgba(0,0,0,0.3); margin: 8px 0;">
           </li>

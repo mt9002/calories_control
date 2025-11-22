@@ -48,8 +48,6 @@ public class UpdateController {
         Result<AvatarModel> avatar = avatarUseCase.updateAvatar(userId, url);
         if (avatar.getState() == State.SUCCESS) {
             redirectAttributes.addFlashAttribute("success", avatar.getMessage());
-            // redirectAttributes.addFlashAttribute("avatarUrl",
-            // avatar.getData().getAvatarUrl());
         } else {
             redirectAttributes.addFlashAttribute("error", avatar.getMessage());
         }
@@ -65,11 +63,6 @@ public class UpdateController {
         String url = "/avatars/" + filename;
         logger.info("Saved avatar file to: {} with URL: {}", uploadPath.toString(), url);
         return url; // URL pública correcta
-    }
-
-    @GetMapping("avatar")
-    public String getMethodName() {
-        return "profile";
     }
 
 }
