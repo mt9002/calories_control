@@ -23,6 +23,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.lang.NonNull;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -38,7 +39,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
             throws ServletException, IOException {
 
         final String token = getTokenFromRequest(request);
@@ -59,11 +61,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 }
 
-                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-                if (authentication != null) {
-                }
-
-                if (isUserUri(requestUri) && hasRole("ROLE_USER")) {
+                if (isUserUri(requestUri) && !hasRole("ROLE_USER")) {
                     validAcces(response);
                     return;
                 }
@@ -76,7 +74,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     .body(Result.failure("Token has expired ", State.UNAUTHORIZED));
             String json = objectMapper.writeValueAsString(resp);
             response.getWriter().write(json);
-            logger.warn("Token has expired: " + e.getMessage());
+            logger.warn("Token has expired: {}" + e.getMessage());
             return;
         } catch (MalformedJwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -137,7 +135,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         ResponseEntity<Result<String>> resp = ResponseEntity
                 .status(HttpServletResponse.SC_FORBIDDEN)
                 .body(
-                    Result.failure("No tienes permiso para acceder a este recurso.", State.UNAUTHORIZED));
+                        Result.failure("No tienes permiso para acceder a este recurso.", State.UNAUTHORIZED));
         String json = objectMapper.writeValueAsString(resp);
         response.getWriter().write(json);
     }
