@@ -2,12 +2,12 @@ package calories_control.features.shared;
 
 import java.util.Optional;
 
+import calories_control.features.auth.infra.AvatarRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import calories_control.features.auth.infra.AvatarModel;
-import calories_control.features.auth.infra.AvatarRapository;
 import calories_control.features.auth.infra.UserModel;
 import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import org.slf4j.Logger;
@@ -18,9 +18,9 @@ public class GlobalModelAttributes {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalModelAttributes.class);
 
-    private final AvatarRapository avatarRepository;
+    private final AvatarRepository avatarRepository;
 
-    public GlobalModelAttributes(AvatarRapository avatarRepository) {
+    public GlobalModelAttributes(AvatarRepository avatarRepository) {
         this.avatarRepository = avatarRepository;
     }
 

@@ -6,7 +6,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CaloriesControlApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
 }

@@ -2,16 +2,17 @@ package calories_control.features.auth.infra;
 
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import calories_control.features.auth.domain.IAvatarRepository;
+import org.springframework.stereotype.Repository;
 
 @Repository
-public class AvatarRapository implements IAvatarRepository {
+public class AvatarRepository implements IAvatarRepository {
 
     private final AvatarJpa avatarJpa;
 
-    public AvatarRapository(AvatarJpa avatarJpa) {
+    public AvatarRepository(AvatarJpa avatarJpa) {
         this.avatarJpa = avatarJpa;
     }
 
