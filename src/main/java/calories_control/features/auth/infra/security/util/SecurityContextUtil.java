@@ -3,7 +3,7 @@ package calories_control.features.auth.infra.security.util;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import calories_control.features.auth.infra.UserModel;
+import calories_control.features.auth.infra.user.UserModel;
 
 public class SecurityContextUtil {
 

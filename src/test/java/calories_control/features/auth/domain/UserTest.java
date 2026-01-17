@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import calories_control.features.auth.infra.Role;
+import calories_control.features.auth.infra.user.Role;
 
 class UserTest {
 
@@ -21,7 +21,7 @@ class UserTest {
         // Assert
         assertEquals(name, user.getName());
         assertEquals(email, user.getEmail());
-        assertEquals(password, user.getPassword());
+        assertEquals(password, user.getHash());
         assertNull(user.getId());
         assertNull(user.getRole());
     }
@@ -35,7 +35,7 @@ class UserTest {
         assertNull(user.getId());
         assertNull(user.getName());
         assertNull(user.getEmail());
-        assertNull(user.getPassword());
+        assertNull(user.getHash());
         assertNull(user.getRole());
     }
 
@@ -60,7 +60,7 @@ class UserTest {
         assertEquals(id, user.getId());
         assertEquals(name, user.getName());
         assertEquals(email, user.getEmail());
-        assertEquals(password, user.getPassword());
+        assertEquals(password, user.getHash());
         assertEquals(role, user.getRole());
     }
 }

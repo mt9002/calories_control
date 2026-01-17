@@ -1,4 +1,4 @@
-package calories_control.features.auth.infra.security;
+package calories_control.features.auth.infra.security.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;

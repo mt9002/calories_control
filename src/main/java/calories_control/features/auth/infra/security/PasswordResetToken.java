@@ -1,7 +1,8 @@
-package calories_control.features.auth.infra;
+package calories_control.features.auth.infra.security;
 
 import java.time.LocalDateTime;
 
+import calories_control.features.auth.infra.user.UserModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

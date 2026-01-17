@@ -2,11 +2,10 @@ package calories_control.features.auth.domain;
 
 import java.util.Optional;
 
-import calories_control.features.auth.infra.AvatarModel;
+import calories_control.features.auth.infra.avatar.AvatarModel;
 
 public interface IAvatarRepository {
 
-    public Optional<AvatarModel> updateAvatar(Long userId, String avatarUrl);
-
-    public Optional<AvatarModel> getAvatar(Long userId);
+    AvatarModel updateAvatar(AvatarModel avatarModel);
+    Optional<AvatarModel> getAvatar(Long userId);
 }

@@ -14,8 +14,6 @@ import java.security.Key;
 import java.util.function.Function;
 import org.springframework.stereotype.Component;
 
-import calories_control.features.auth.infra.security.IJWT;
-
 @Component
 public class JWT implements IJWT{
 

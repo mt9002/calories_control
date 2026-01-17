@@ -2,6 +2,11 @@ package calories_control.features.auth.infra;
 
 import java.util.Optional;
 
+import calories_control.features.auth.infra.avatar.AvatarJpa;
+import calories_control.features.auth.infra.security.PasswordResetToken;
+import calories_control.features.auth.infra.security.ResetTokenJpa;
+import calories_control.features.auth.infra.user.UserJpa;
+import calories_control.features.auth.infra.user.UserModel;
 import org.springframework.stereotype.Repository;
 
 import calories_control.features.auth.domain.IAuthRepository;
@@ -12,35 +17,18 @@ public class AuthRepository implements IAuthRepository {
 
     private final UserJpa userJpa;
 
-    private final ResetTokenJpa resetTokenJpa;
-
-    public AuthRepository(UserJpa userJpa, ResetTokenJpa resetTokenJpa, AvatarJpa avatarJpa) {
+    public AuthRepository(UserJpa userJpa, AvatarJpa avatarJpa) {
         this.userJpa = userJpa;
-
-        this.resetTokenJpa = resetTokenJpa;
     }
 
     @Override
-    public Optional<User> register(User user) {
-        UserModel userModel = new UserModel(user.getName(), user.getEmail(), user.getPassword());
-        userModel.setRole(user.getRole());
-        UserModel userResult = userJpa.save(userModel);
-
-        user.setId(userResult.getId());
-
-        return Optional.of(user);
+    public UserModel save(UserModel userModel) {
+        return userJpa.save(userModel);
     }
 
     @Override
     public Optional<UserModel> findByEmail(String email) {
         return userJpa.findByEmail(email);
-    }
-
-    @Override
-    public Optional<PasswordResetToken> saveResetToken(PasswordResetToken passwordResetToken) {
-        PasswordResetToken pr = resetTokenJpa.save(passwordResetToken);
-        return Optional.of(pr);
-
     }
 
 }

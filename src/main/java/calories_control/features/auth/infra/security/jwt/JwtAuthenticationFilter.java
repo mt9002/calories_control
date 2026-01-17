@@ -28,11 +28,11 @@ import org.springframework.lang.NonNull;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JWT jwt;
+    private final IJWT jwt;
     private final UserDetailsService userDetailsService;
 
-    public JwtAuthenticationFilter(UserDetailsService userDetailsService) {
-        this.jwt = new JWT();
+    public JwtAuthenticationFilter(UserDetailsService userDetailsService, IJWT jwt) {
+        this.jwt = jwt;
         this.userDetailsService = userDetailsService;
     }
 

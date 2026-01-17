@@ -1,41 +1,44 @@
 package calories_control.features.auth.app.login;
 
+import calories_control.features.auth.infra.user.UserModel;
+import calories_control.features.auth.infra.security.jwt.IJWT;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Component;
 
-import calories_control.features.shared.Result;
-import calories_control.features.shared.State;
-
 @Component
-public class LoginUseCase implements ILoginUseCase {
+public class LoginService {
 
     private final AuthenticationManager authenticateUser;
+    private final IJWT jwt;
 
-    public LoginUseCase(
-            AuthenticationManager authenticateUser) {
-
+    public LoginService(AuthenticationManager authenticateUser, IJWT jwt) {
         this.authenticateUser = authenticateUser;
+        this.jwt = jwt;
     }
 
-    @Override
-    public Result login(String email, String password) {
+
+    public LoginResponse login(LoginRequest loginRequest) {
+
+        String email = loginRequest.email();
+        String password = loginRequest.password();
 
         Authentication authentication = this.authenticationManager(email, password);
 
         if (authentication == null || !authentication.isAuthenticated()
                 || authentication.getPrincipal().equals("anonymousUser")) {
-
-            return Result.failure("login failed", State.UNAUTHORIZED);
+            System.out.println("err");
         }
 
+        UserModel userModel = (UserModel) authentication.getPrincipal();
+        String token = jwt.getToken(userModel);
+
         // Guarda la autenticacion en el contexto de seguridad
-        // (HttpSessionSecurityContextRepositor)
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return Result.success("login success ");
+        return new LoginResponse(token, userModel.getName());
     }
 
     private Authentication authenticationManager(String email, String password) {

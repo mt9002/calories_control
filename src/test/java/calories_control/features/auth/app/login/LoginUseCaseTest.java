@@ -24,7 +24,7 @@ class LoginUseCaseTest {
     private AuthenticationManager authenticationManager;
 
     @InjectMocks
-    private LoginUseCase loginUseCase;
+    private LoginService loginService;
 
     @BeforeEach
     void setUp() {
@@ -46,7 +46,7 @@ class LoginUseCaseTest {
         try (MockedStatic<SecurityContextHolder> mockedSecurity = mockStatic(SecurityContextHolder.class)) {
             mockedSecurity.when(SecurityContextHolder::getContext).thenReturn(mockSecurityContext);
             // Act
-            Result result = loginUseCase.login(email, password);
+            Result result = loginService.login(email, password);
 
             // Assert
             assertEquals(State.SUCCESS, result.getState());
@@ -63,7 +63,7 @@ class LoginUseCaseTest {
         when(authenticationManager.authenticate(any())).thenReturn(null);
 
         // Act
-        Result result = loginUseCase.login(email, password);
+        Result result = loginService.login(email, password);
 
         // Assert
         assertEquals(State.UNAUTHORIZED, result.getState());
@@ -81,7 +81,7 @@ class LoginUseCaseTest {
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
 
         // Act
-        Result result = loginUseCase.login(email, password);
+        Result result = loginService.login(email, password);
 
         // Assert
         assertEquals(State.UNAUTHORIZED, result.getState());
@@ -100,7 +100,7 @@ class LoginUseCaseTest {
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
 
         // Act
-        Result result = loginUseCase.login(email, password);
+        Result result = loginService.login(email, password);
 
         // Assert
         assertEquals(State.UNAUTHORIZED, result.getState());

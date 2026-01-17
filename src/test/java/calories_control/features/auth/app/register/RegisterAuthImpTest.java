@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import calories_control.features.auth.domain.IAuthRepository;
 import calories_control.features.auth.domain.User;
-import calories_control.features.auth.infra.Role;
+import calories_control.features.auth.infra.user.Role;
 import calories_control.features.shared.Result;
 import calories_control.features.shared.State;
 

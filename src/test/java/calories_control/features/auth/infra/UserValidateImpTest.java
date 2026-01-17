@@ -3,6 +3,8 @@ package calories_control.features.auth.infra;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import calories_control.features.auth.infra.user.UserJpa;
+import calories_control.features.auth.infra.user.UserValidateImp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

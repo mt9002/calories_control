@@ -1,20 +1,20 @@
 package calories_control.features.auth.domain;
 
-import calories_control.features.auth.infra.Role;
+import calories_control.features.auth.infra.user.Role;
 
 public class User {
 
     private Long id;
     private String name;
     private String email;
-    private String password;
+    private String hash;
     private Role role;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String hash, Role role) {
         this.name = name;
-
+        this.role = role;
         this.email = email;
-        this.password = password;
+        this.hash = hash;
     }
 
     public User() {
@@ -44,12 +44,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getHash() {
+        return hash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String hash) {
+        this.hash = hash;
     }
 
     public Role getRole() {

@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestRegisterDto {
+public class RegisterRequest {
     private String email;
     private String password;
     private String name;
     private String confirmPassword;
 
-    public RequestRegisterDto(String name, String email, String password) {
+    public RegisterRequest(String name, String email, String password) {
         this.email = email;
         this.name = name;
         this.password = password;

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 
-import calories_control.features.auth.infra.UserJpa;
+import calories_control.features.auth.infra.user.UserJpa;
 import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.infra.ImcJPA;
 

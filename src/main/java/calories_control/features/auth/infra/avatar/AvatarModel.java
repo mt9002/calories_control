@@ -1,4 +1,4 @@
-package calories_control.features.auth.infra;
+package calories_control.features.auth.infra.avatar;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

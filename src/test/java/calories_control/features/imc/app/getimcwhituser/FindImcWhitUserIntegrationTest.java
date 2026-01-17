@@ -15,12 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-import calories_control.features.auth.infra.Role;
-import calories_control.features.auth.infra.UserModel;
+import calories_control.features.auth.infra.user.Role;
+import calories_control.features.auth.infra.user.UserModel;
 import calories_control.features.auth.infra.security.util.SecurityContextUtil;
 import calories_control.features.imc.infra.ImcJPA;
 import calories_control.features.imc.infra.ImcModel;
-import calories_control.features.auth.infra.UserJpa;
+import calories_control.features.auth.infra.user.UserJpa;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest

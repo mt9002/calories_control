@@ -2,14 +2,14 @@ package calories_control.features.auth.domain;
 
 import java.util.Optional;
 
-import calories_control.features.auth.infra.PasswordResetToken;
-import calories_control.features.auth.infra.UserModel;
+import calories_control.features.auth.infra.security.PasswordResetToken;
+import calories_control.features.auth.infra.user.UserModel;
 
 public interface IAuthRepository {
 
-    public Optional<User> register(User user);
+    public UserModel save(UserModel userModel);
 
     public Optional<UserModel> findByEmail(String email);
-
-    public Optional<PasswordResetToken> saveResetToken(PasswordResetToken passwordResetToken);
 }
+
+// Reason: easy testing - mock ### investment in dependencies #### easy change of ORM -- Service does not depend on: jpa

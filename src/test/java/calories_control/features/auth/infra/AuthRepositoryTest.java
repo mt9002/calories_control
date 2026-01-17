@@ -6,6 +6,11 @@ import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
+import calories_control.features.auth.infra.security.PasswordResetToken;
+import calories_control.features.auth.infra.security.ResetTokenJpa;
+import calories_control.features.auth.infra.user.Role;
+import calories_control.features.auth.infra.user.UserJpa;
+import calories_control.features.auth.infra.user.UserModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

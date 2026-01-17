@@ -52,3 +52,6 @@ mvn jacoco:report
 
 ```
 El reporte HTML estará disponible en `target/site/jacoco/index.html`.
+
+##
+### Correr sin test:  mvn spring-boot:run -Dmaven.test.skip=true
