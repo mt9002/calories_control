@@ -4,6 +4,7 @@ import calories_control.auth.infra.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -22,9 +23,10 @@ public class SecurityConfig2 {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        System.out.println("entrando a securityFilterChain");
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> {})
+                .cors(Customizer.withDefaults())
                 .sessionManagement(session -> session
                         .maximumSessions(1)
                         .maxSessionsPreventsLogin(true))
@@ -32,6 +34,8 @@ public class SecurityConfig2 {
                         .requestMatchers(
                                 "/error/**",
                                 "/api/auth/**",
+                                "/imc/**",
+                                "/imc/create",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**",
